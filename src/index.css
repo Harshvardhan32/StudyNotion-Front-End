@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000814;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #585D69;
+    border-radius: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.codeblock-1,
+.codeblock-2 {
+    border-radius: 100%;
+    -webkit-filter: blur(34px);
+    filter: blur(34px);
+    height: 257.05px;
+    left: calc(50% - 263.005px);
+    opacity: .2;
+    top: calc(50% - 175.995px);
+    -webkit-transform: matrix(1, 0, -.03, 1, 0, 0);
+    transform: matrix(1, 0, -.03, 1, 0, 0);
+    width: 372.95px;
+}
+
+.codeblock-1 {
+    background: linear-gradient(123.77deg, #8a2be2 -6.46%, orange 59.04%, #f8f8ff 124.53%);
+}
+
+.codeblock-2 {
+    background: linear-gradient(118.19deg, #1fa2ff -3.62%, #12d8fa 50.44%, #a6ffcb 104.51%);
+}
+
+.homepage_bg {
+    background: url('../src/assets/Images/bghome.svg');
+}
