@@ -24,7 +24,7 @@ const Instructor = () => {
             if (result) {
                 setCourses(result);
             }
-            console.log('Result of instructor data', instructorApiData);
+            // console.log('Result of instructor data', instructorApiData);
             setLoading(false);
         })();
     }, []);
@@ -108,7 +108,7 @@ const Instructor = () => {
                             </Link>
                         </div>
                         <div className="my-4 flex items-start space-x-6">
-                            {courses?.slice(0, 3).map((course) => (
+                            {courses?.slice(0, 3)?.map((course) => (
                                 <div key={course._id} className="w-1/3">
                                     <img
                                         src={course?.thumbnail}

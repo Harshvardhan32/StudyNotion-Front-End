@@ -34,7 +34,7 @@ const TimelineSection = () => {
         <div>
             <div className="flex flex-col lg:flex-row gap-20 mb-20 items-center">
                 <div className="lg:w-[45%] flex flex-col gap-14 lg:gap-3">
-                    {TimeLine.map((ele, i) => {
+                    {TimeLine?.map((ele, i) => {
                         return (
                             <div className="flex flex-col lg:gap-3" key={i}>
                                 <div className="flex gap-6" key={i}>
@@ -47,7 +47,7 @@ const TimelineSection = () => {
                                     </div>
                                 </div>
                                 <div
-                                    className={`hidden ${TimeLine.length - 1 === i ? "hidden" : "lg:block"
+                                    className={`hidden ${TimeLine?.length - 1 === i ? "hidden" : "lg:block"
                                         }  h-14 border-dotted border-r border-richblack-100 bg-richblack-400/0 w-[26px]`}
                                 ></div>
                             </div>

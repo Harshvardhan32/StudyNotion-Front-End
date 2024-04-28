@@ -8,7 +8,7 @@ import { changePassword } from "../../../../services/operations/SettingsAPI";
 import IconBtn from "../../../common/IconBtn";
 
 export default function UpdatePassword() {
-    const { token } = useSelector((state) => state.auth);
+    const { token } = useSelector((state) => state?.auth);
     const navigate = useNavigate();
 
     const [showOldPassword, setShowOldPassword] = useState(false);
@@ -27,7 +27,7 @@ export default function UpdatePassword() {
             setValue("oldPassword", "");
             setValue("newPassword", "");
         } catch (error) {
-            console.log("ERROR MESSAGE - ", error.message);
+            // console.log("ERROR MESSAGE - ", error.message);
         }
     };
 

@@ -116,10 +116,10 @@ exports.getAllUserDetails = async (req, res) => {
 
 exports.updateProfilePicture = async (req, res) => {
     try {
-        const displayPicture = req.files.displayPicture;
+        const profilePicture = req.files.profilePicture;
         const userId = req.user.id;
         const image = await uploadImageToCloudinary(
-            displayPicture,
+            profilePicture,
             process.env.FOLDER_NAME,
             1000,
             1000
@@ -127,10 +127,11 @@ exports.updateProfilePicture = async (req, res) => {
         console.log(image);
         const updatedProfile = await User.findByIdAndUpdate(
             { _id: userId },
-            { image: image.secure_url },
+            { image: image?.secure_url },
             { new: true }
         );
-        res.send({
+
+        return res.status(200).json({
             success: true,
             message: `Image Updated successfully`,
             data: updatedProfile,

@@ -21,7 +21,7 @@ function CourseDetailsCard({ course, handleBuyCourse, handleAddToCart }) {
         toast.success("Link copied to clipboard");
     };
 
-    const courseInstruction = course?.instructions?.toString().split(' ,');
+    const courseInstruction = course?.instructions?.toString().split(',');
 
     return (
         <div className={`flex flex-col gap-4 rounded-md bg-richblack-700 p-4 text-richblack-5`}>

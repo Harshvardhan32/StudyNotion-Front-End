@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-
 import { updateProfilePicture } from "../../../../services/operations/SettingsAPI";
 import IconBtn from "../../../common/IconBtn";
 
 export default function ChangeProfilePicture() {
-    const { token } = useSelector((state) => state.auth);
-    const { user } = useSelector((state) => state.profile);
+    const { token } = useSelector((state) => state?.auth);
+    const { user } = useSelector((state) => state?.profile);
     const dispatch = useDispatch();
 
     const [loading, setLoading] = useState(false);
@@ -33,13 +32,13 @@ export default function ChangeProfilePicture() {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () => {
-            setPreviewSource(reader.result);
+            setPreviewSource(reader?.result);
         };
     };
 
     const handleFileUpload = () => {
         try {
-            console.log("uploading...");
+            // console.log("uploading...");
             setLoading(true);
             const formData = new FormData();
             formData.append("profilePicture", imageFile);
@@ -48,7 +47,7 @@ export default function ChangeProfilePicture() {
                 setLoading(false);
             });
         } catch (error) {
-            console.log("ERROR MESSAGE - ", error.message);
+            // console.log("ERROR MESSAGE - ", error.message);
         }
     };
 
@@ -62,7 +61,7 @@ export default function ChangeProfilePicture() {
             <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12 text-richblack-5">
                 <div className="flex items-center gap-x-4">
                     <img
-                        src={previewSource || user?.image}
+                        src={user?.image || previewSource}
                         alt={`profile-${user?.firstName}`}
                         className="aspect-square w-[78px] rounded-full object-cover"
                     />

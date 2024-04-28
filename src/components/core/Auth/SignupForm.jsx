@@ -13,7 +13,7 @@ function SignupForm() {
     const dispatch = useDispatch();
 
     // student or instructor
-    const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT);
+    const [accountType, setAccountType] = useState(ACCOUNT_TYPE?.STUDENT);
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -53,7 +53,7 @@ function SignupForm() {
         // To be used after otp verification
         dispatch(setSignupData(signupData));
         // Send OTP to user for verification
-        dispatch(sendOtp(formData.email, navigate));
+        dispatch(sendOtp(formData?.email, navigate));
 
         // Reset
         setFormData({

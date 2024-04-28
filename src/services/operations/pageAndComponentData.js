@@ -13,12 +13,11 @@ export const getCatalogaPageData = async (categoryId) => {
             throw new Error("Could not Fetch Category page data");
 
         result = response?.data;
-
     }
     catch (error) {
-        console.log("CATALOG PAGE DATA API ERROR....", error);
+        // console.log("CATALOG PAGE DATA API ERROR....", error);
         toast.error(error.message);
-        result = error.response?.data;
+        result = error?.response?.data;
     }
     toast.dismiss(toastId);
     return result;

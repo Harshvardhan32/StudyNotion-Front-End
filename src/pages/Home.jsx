@@ -78,7 +78,7 @@ function Home() {
                         }
                         ctabtn1={{
                             btnText: "Try it Yourself",
-                            link: "/signup",
+                            link: "/login",
                             active: true,
                         }}
                         ctabtn2={{
@@ -107,7 +107,7 @@ function Home() {
                         }
                         ctabtn1={{
                             btnText: "Continue Lesson",
-                            link: "/signup",
+                            link: "/login",
                             active: true,
                         }}
                         ctabtn2={{

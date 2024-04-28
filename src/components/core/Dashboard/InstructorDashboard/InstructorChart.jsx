@@ -21,7 +21,7 @@ export default function InstructorChart({ courses }) {
 
     // Data for the chart displaying student information
     const chartDataStudents = {
-        labels: courses?.map((course) => course.courseName),
+        labels: courses?.map((course) => course?.courseName),
         datasets: [
             {
                 data: courses?.map((course) => course?.totalStudentsEnrolled),
@@ -36,7 +36,7 @@ export default function InstructorChart({ courses }) {
         datasets: [
             {
                 data: courses?.map((course) => course.totalAmountGenerated),
-                backgroundColor: generateRandomColors(courses.length),
+                backgroundColor: generateRandomColors(courses?.length),
             },
         ],
     };

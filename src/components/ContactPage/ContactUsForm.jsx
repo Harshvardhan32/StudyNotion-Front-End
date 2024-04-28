@@ -17,15 +17,11 @@ const ContactUsForm = () => {
         // console.log("Form Data - ", data)
         try {
             setLoading(true);
-            const res = await apiConnector(
-                "POST",
-                contactusEndpoint.CONTACT_US_API,
-                data
-            );
-            // console.log("Email Res - ", res)
+            const result = await apiConnector("POST", contactusEndpoint.CONTACT_US_API, data);
+            // console.log("Email result - ", result)
             setLoading(false);
         } catch (error) {
-            console.log("ERROR MESSAGE - ", error.message);
+            // console.log("ERROR MESSAGE - ", error.message);
             setLoading(false);
         }
     };
@@ -115,10 +111,10 @@ const ContactUsForm = () => {
                             className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                             {...register("countrycode", { required: true })}
                         >
-                            {CountryCode.map((ele, i) => {
+                            {CountryCode?.map((ele, i) => {
                                 return (
                                     <option key={i} value={ele.code}>
-                                        {ele.code} -{ele.country}
+                                        {ele.code} - {ele.country}
                                     </option>
                                 );
                             })}

@@ -9,11 +9,11 @@ import { updateCompletedLectures } from "../../../slices/viewCourseSlice";
 import IconBtn from "../../common/IconBtn";
 
 const VideoDetails = () => {
-    const { courseId, sectionId, subSectionId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
     const playerRef = useRef(null);
     const dispatch = useDispatch();
+    const { courseId, sectionId, subSectionId } = useParams();
     const { token } = useSelector((state) => state?.auth);
     const { courseSectionData, courseEntireData, completedLectures } =
         useSelector((state) => state?.viewCourse);

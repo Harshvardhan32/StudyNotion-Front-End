@@ -33,13 +33,13 @@ const ContactDetails = () => {
                     key={i}
                 >
                     <div className="flex flex-row text-2xl items-center gap-3">
-                        {ele.icon}
+                        {ele?.icon}
                         <h1 className="text-lg font-semibold text-richblack-5">
-                            {ele.heading}
+                            {ele?.heading}
                         </h1>
                     </div>
-                    <p className="font-medium">{ele.description}</p>
-                    <p className="font-semibold">{ele.details}</p>
+                    <p className="font-medium">{ele?.description}</p>
+                    <p className="font-semibold">{ele?.details}</p>
                 </div>
             ))}
         </div>

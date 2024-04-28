@@ -35,15 +35,15 @@ export default function RenderSteps() {
                                     : "border-richblack-700 bg-richblack-800 text-richblack-300"
                                     } ${step > item.id && "bg-yellow-50 text-yellow-50"}} `}
                             >
-                                {step > item.id ? (
+                                {step > item?.id ? (
                                     <FaCheck className="font-bold text-richblack-900" />
                                 ) : (
-                                    item.id
+                                    item?.id
                                 )}
                             </button>
 
                         </div>
-                        {item.id !== steps.length && (
+                        {item?.id !== steps?.length && (
                             <>
                                 <div
                                     className={`h-[calc(34px/2)] w-[33%]  border-dashed border-b-2 ${step > item.id ? "border-yellow-50" : "border-richblack-500"
@@ -60,14 +60,14 @@ export default function RenderSteps() {
                     <React.Fragment key={item?.id}>
                         <div
                             className="flex min-w-[130px] flex-col items-center gap-y-2"
-                            key={item.id}
+                            key={item?.id}
                         >
 
                             <p
-                                className={`text-sm ${step >= item.id ? "text-richblack-5" : "text-richblack-500"
+                                className={`text-sm ${step >= item?.id ? "text-richblack-5" : "text-richblack-500"
                                     }`}
                             >
-                                {item.title}
+                                {item?.title}
                             </p>
                         </div>
 

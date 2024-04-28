@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import ReactStars from "react-rating-stars-component";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/free-mode";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "../../App.css";
+import React, { useEffect, useState } from "react";
+import ReactStars from "react-rating-stars-component";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaStar } from "react-icons/fa";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import { apiConnector } from "../../services/apiconnector";
@@ -17,10 +17,7 @@ function ReviewSlider() {
 
     useEffect(() => {
         (async () => {
-            const { data } = await apiConnector(
-                "GET",
-                ratingsEndpoints.REVIEWS_DETAILS_API
-            );
+            const { data } = await apiConnector("GET", ratingsEndpoints.REVIEWS_DETAILS_API);
             if (data?.success) {
                 setReviews(data?.data);
             }
@@ -74,11 +71,11 @@ function ReviewSlider() {
                                         </p>
                                         <div className="flex items-center gap-2 ">
                                             <h3 className="font-semibold text-yellow-100">
-                                                {review.rating.toFixed(1)}
+                                                {review?.rating.toFixed(1)}
                                             </h3>
                                             <ReactStars
                                                 count={5}
-                                                value={review.rating}
+                                                value={review?.rating}
                                                 size={20}
                                                 edit={false}
                                                 activeColor="#ffd700"

@@ -26,9 +26,7 @@ function CourseDetails() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // Getting courseId from url parameter
     const { courseId } = useParams();
-    // console.log(`course id: ${courseId}`)
 
     // Declear a state to save the course details
     const [courseData, setCourseData] = useState(null);
@@ -38,9 +36,9 @@ function CourseDetails() {
             try {
                 const result = await fetchCourseDetails(courseId);
                 setCourseData(result);
-                console.log('Course details result : ', result);
+                // console.log('Course details result : ', result);
             } catch (error) {
-                console.log("Could not fetch Course Details");
+                // console.log("Could not fetch Course Details");
             }
         })();
     }, [courseId]);
@@ -67,7 +65,7 @@ function CourseDetails() {
     useEffect(() => {
         let lectures = 0;
         courseData?.data?.courseDetails?.courseContent?.forEach((section) => {
-            lectures += section.subSection.length || 0;
+            lectures += section?.subSection?.length || 0;
         });
         setTotalNoOfLectures(lectures);
     }, [courseData]);
@@ -106,7 +104,8 @@ function CourseDetails() {
 
     const handleBuyCourse = () => {
         if (token) {
-            if (user?.accountType === 'Instructor' || user?.accountType === 'Admin') {
+            if (user?.accountType === ACCOUNT_TYPE?.INSTRUCTOR ||
+                user?.accountType === ACCOUNT_TYPE?.ADMIN) {
                 toast.error(`You are an ${user?.accountType}. You can't buy course.`);
             } else {
                 buyCourse(token, [courseId], user, navigate, dispatch);
@@ -124,7 +123,7 @@ function CourseDetails() {
     };
 
     const handleAddToCart = () => {
-        if (user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) {
+        if (user && user?.accountType === ACCOUNT_TYPE?.INSTRUCTOR) {
             toast.error("You are an Instructor. You can't buy a course.");
             return;
         }
@@ -142,7 +141,7 @@ function CourseDetails() {
         });
     };
 
-    console.log('Instructor details: ', instructor);
+    // console.log('Instructor details: ', instructor);
 
     if (paymentLoading) {
         return (
@@ -208,7 +207,9 @@ function CourseDetails() {
                             <button className="bg-yellow-50 py-3 text-xl text-black rounded-lg" onClick={handleBuyCourse}>
                                 Buy Now
                             </button>
-                            <button className="bg-richblack-900 py-3 text-xl text-white rounded-lg" onClick={handleAddToCart}>Add to Cart</button>
+                            <button className="bg-richblack-900 py-3 text-xl text-white rounded-lg" onClick={handleAddToCart}>
+                                Add to Cart
+                            </button>
                         </div>
                     </div>
                     {/* Courses Card */}
@@ -272,16 +273,15 @@ function CourseDetails() {
                         <div className="mb-12 py-4">
                             <p className="text-[28px] font-semibold">Author</p>
                             <div className="flex items-center gap-4 py-4">
-                                <img
-                                    src={
-                                        instructor.image
-                                            ? instructor.image
-                                            : `https://api.dicebear.com/5.x/initials/svg?seed=${instructor.firstName} ${instructor.lastName}`
-                                    }
+                                <img src={
+                                    instructor?.image
+                                        ? instructor?.image
+                                        : `https://api.dicebear.com/5.x/initials/svg?seed=${instructor?.firstName} ${instructor?.lastName}`
+                                }
                                     alt="Author"
                                     className="h-14 w-14 rounded-full object-cover"
                                 />
-                                <p className="text-lg">{`${instructor.firstName} ${instructor.lastName}`}</p>
+                                <p className="text-lg">{`${instructor?.firstName} ${instructor?.lastName}`}</p>
                             </div>
                             <p className="text-richblack-50">
                                 {instructor?.additionalDetails?.about}

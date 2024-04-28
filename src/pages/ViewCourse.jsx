@@ -19,13 +19,13 @@ export default function ViewCourse() {
 
     const courseFullDetails = async () => {
         const courseData = await getFullDetailsOfCourse({ courseId }, token);
-        console.log("Course Data here... ", courseData?.courseDetails);
+        // console.log("Course Data here... ", courseData?.courseDetails);
         dispatch(setCourseSectionData(courseData?.courseDetails?.courseContent));
         dispatch(setEntireCourseData(courseData?.courseDetails));
         dispatch(setCompletedLectures(courseData?.completedVideos));
         let lectures = 0;
-        courseData?.courseDetails?.courseContent?.forEach((sec) => {
-            lectures += sec.subSection.length;
+        courseData?.courseDetails?.courseContent?.forEach((section) => {
+            lectures += section?.subSection?.length;
         });
         dispatch(setTotalNoOfLectures(lectures));
     };

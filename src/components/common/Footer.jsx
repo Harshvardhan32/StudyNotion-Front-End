@@ -1,11 +1,7 @@
 import React from "react";
-import { FooterLink2 } from "../../data/footer-links";
+import { FooterLink } from "../../data/footer-links";
 import { Link } from "react-router-dom";
-
-// Images
 import Logo from "../../assets/Logo/Logo-Full-Light.png";
-
-// Icons
 import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
@@ -125,7 +121,7 @@ const Footer = () => {
 
                     {/* Section 2 */}
                     <div className="lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-3">
-                        {FooterLink2.map((ele, i) => {
+                        {FooterLink?.map((ele, i) => {
                             return (
                                 <div key={i} className="w-[48%] lg:w-[30%] mb-7 lg:pl-0">
                                     <h1 className="text-richblack-50 font-semibold text-[16px]">

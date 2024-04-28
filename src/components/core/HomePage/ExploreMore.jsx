@@ -13,14 +13,14 @@ const tabsName = [
 
 const ExploreMore = () => {
     const [currentTab, setCurrentTab] = useState(tabsName[0]);
-    const [courses, setCourses] = useState(HomePageExplore[0].courses);
+    const [courses, setCourses] = useState(HomePageExplore[0]?.courses);
     const [currentCard, setCurrentCard] = useState(
-        HomePageExplore[0].courses[0].heading
+        HomePageExplore[0]?.courses[0]?.heading
     );
 
     const setMyCards = (value) => {
         setCurrentTab(value);
-        const result = HomePageExplore.filter((course) => course.tag === value);
+        const result = HomePageExplore?.filter((course) => course.tag === value);
         setCourses(result[0].courses);
         setCurrentCard(result[0].courses[0].heading);
     };
@@ -59,7 +59,7 @@ const ExploreMore = () => {
 
             {/* Cards Group */}
             <div className="lg:absolute gap-10 justify-center lg:gap-0 flex lg:justify-between flex-wrap w-full lg:bottom-[0] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[50%] text-black lg:mb-0 mb-7 lg:px-0 px-3">
-                {courses.map((ele, index) => {
+                {courses?.map((ele, index) => {
                     return (
                         <CourseCard
                             key={index}

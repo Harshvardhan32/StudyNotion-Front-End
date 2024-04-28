@@ -15,7 +15,7 @@ export default function ChipInput({
     setValue,
     getValues,
 }) {
-    const { editCourse, course } = useSelector((state) => state.course);
+    const { editCourse, course } = useSelector((state) => state?.course);
 
     // Setting up state for managing chips array
     const [chips, setChips] = useState([]);
@@ -36,9 +36,7 @@ export default function ChipInput({
 
     // Function to handle user input when chips are added
     const handleKeyDown = (event) => {
-        // Check if user presses "Enter" or ","
         if (event.key === "Enter" || event.key === ",") {
-            // Prevent the default behavior of the event
             event.preventDefault();
             // Get the input value and remove any leading/trailing spaces
             const chipValue = event.target.value.trim();

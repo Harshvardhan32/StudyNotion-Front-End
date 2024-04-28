@@ -20,8 +20,8 @@ const Catalog = () => {
     //Fetch all categories
     useEffect(() => {
         const getCategories = async () => {
-            const res = await apiConnector("POST", categories.CATEGORIES_API);
-            const category_id = res?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0];
+            const result = await apiConnector("POST", categories.CATEGORIES_API);
+            const category_id = result?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0];
             setCategoryId(category_id);
         };
         getCategories();
@@ -30,12 +30,12 @@ const Catalog = () => {
     useEffect(() => {
         const getCategoryDetails = async () => {
             try {
-                const res = await getCatalogaPageData(categoryId);
-                console.log("Printing res: ", res);
-                setCatalogPageData(res);
+                const result = await getCatalogaPageData(categoryId);
+                // console.log("Printing result: ", result);
+                setCatalogPageData(result);
             }
             catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         if (categoryId) {

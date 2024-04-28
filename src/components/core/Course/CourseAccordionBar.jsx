@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
-
 import CourseSubSectionAccordion from "./CourseSubSectionAccordion";
 
 export default function CourseAccordionBar({ course, isActive, handleActive }) {
