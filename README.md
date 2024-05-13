@@ -1,5 +1,5 @@
 # Explore StudyNotion
-<a href="https://studynotion-edtech-plateform.netlify.app/">Studynotion an EdTech Plateform</a>
+<a href="https://studynotion-edtech-plateform.netlify.app/" target="_blank">Studynotion an EdTech Plateform</a>
 
 # Getting Started with Create React App
 
