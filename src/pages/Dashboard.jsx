@@ -22,7 +22,7 @@ function Dashboard() {
     }
 
     return (
-        <div className="relative flex min-h-[calc(100vh-3.5rem)] min-w-[600px] w-full">
+        <div className="relative flex min-h-[calc(100vh-3.5rem)] w-full">
             <Sidebar />
             <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
                 <div className="mx-auto w-11/12 max-w-[1000px] py-10">

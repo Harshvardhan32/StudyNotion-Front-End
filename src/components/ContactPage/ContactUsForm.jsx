@@ -53,7 +53,7 @@ const ContactUsForm = () => {
                         name="firstname"
                         id="firstname"
                         placeholder="Enter first name"
-                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                        className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                         {...register("firstname", { required: true })}
                     />
                     {errors.firstname && (
@@ -71,7 +71,7 @@ const ContactUsForm = () => {
                         name="lastname"
                         id="lastname"
                         placeholder="Enter last name"
-                        className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                        className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                         {...register("lastname")}
                     />
                 </div>
@@ -86,7 +86,7 @@ const ContactUsForm = () => {
                     name="email"
                     id="email"
                     placeholder="Enter email address"
-                    className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                    className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                     {...register("email", { required: true })}
                 />
                 {errors.email && (
@@ -108,7 +108,7 @@ const ContactUsForm = () => {
                             name="firstname"
                             id="firstname"
                             placeholder="Enter first name"
-                            className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                            className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                             {...register("countrycode", { required: true })}
                         >
                             {CountryCode?.map((ele, i) => {
@@ -126,7 +126,7 @@ const ContactUsForm = () => {
                             name="phonenumber"
                             id="phonenumber"
                             placeholder="12345 67890"
-                            className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                            className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                             {...register("phoneNo", {
                                 required: {
                                     value: true,
@@ -155,7 +155,7 @@ const ContactUsForm = () => {
                     cols="30"
                     rows="7"
                     placeholder="Enter your message here"
-                    className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                    className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                     {...register("message", { required: true })}
                 />
                 {errors.message && (

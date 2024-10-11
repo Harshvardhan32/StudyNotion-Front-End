@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,25 +7,16 @@ import { login } from "../../../services/operations/authAPI";
 function LoginForm() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
+    const email = useRef("");
+    const password = useRef("");
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const { email, password } = formData;
-
-    const handleOnChange = (e) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            [e.target.name]: e.target.value,
-        }));
-    };
-
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(email, password, navigate));
+        let userEmail = email.current.value;
+        let userPassword = password.current.value;
+        dispatch(login(userEmail, userPassword, navigate));
     };
 
     return (
@@ -41,13 +32,12 @@ function LoginForm() {
                     required
                     type="text"
                     name="email"
-                    value={email}
-                    onChange={handleOnChange}
+                    ref={email}
                     placeholder="Enter email address"
                     style={{
                         boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                     }}
-                    className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+                    className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
                 />
             </label>
             <label className="relative">
@@ -58,13 +48,12 @@ function LoginForm() {
                     required
                     type={showPassword ? "text" : "password"}
                     name="password"
-                    value={password}
-                    onChange={handleOnChange}
+                    ref={password}
                     placeholder="Enter Password"
                     style={{
                         boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                     }}
-                    className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+                    className="w-full outline-none rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
                 />
                 <span
                     onClick={() => setShowPassword((prev) => !prev)}

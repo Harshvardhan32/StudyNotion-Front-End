@@ -24,7 +24,7 @@ export default function RenderSteps() {
     ];
 
     return (
-        <div className="min-w-[450px] max-w-[600px] w-full">
+        <div className="min-w-[450px] max-w-[600px] w-full pr-10">
             <div className="relative mb-2 flex w-full justify-center">
                 {steps?.map((item) => (
                     <React.Fragment key={item?.id}>
@@ -62,7 +62,6 @@ export default function RenderSteps() {
                             className="flex min-w-[130px] flex-col items-center gap-y-2"
                             key={item?.id}
                         >
-
                             <p
                                 className={`text-sm ${step >= item?.id ? "text-richblack-5" : "text-richblack-500"
                                     }`}

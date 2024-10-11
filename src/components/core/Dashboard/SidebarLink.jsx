@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink, matchPath, useLocation } from "react-router-dom";
 import { resetCourseState } from "../../../slices/courseSlice";
 
-export default function SidebarLink({ link, iconName }) {
+export default function SidebarLink({ collapse, link, iconName }) {
     const Icon = Icons[iconName];
     const location = useLocation();
     const dispatch = useDispatch();
@@ -27,8 +27,10 @@ export default function SidebarLink({ link, iconName }) {
             ></span>
             <div className="flex items-center text-lg gap-x-2">
                 {/* Icon Goes Here */}
-                <Icon className="text-xl" />
-                <span>{link?.name}</span>
+                <Icon className={`${collapse ? "text-2xl" : "text-xl"}`} />
+                {
+                    !collapse && <span>{link?.name}</span>
+                }
             </div>
         </NavLink>
     );

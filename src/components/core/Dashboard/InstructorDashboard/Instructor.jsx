@@ -40,7 +40,7 @@ const Instructor = () => {
     );
 
     return (
-        <div className='min-w-[700px]'>
+        <div className='min-w-[700px] pr-10'>
             <div className="space-y-2">
                 <h1 className="text-2xl font-bold text-richblack-5">
                     Hi {user?.firstName} 👋

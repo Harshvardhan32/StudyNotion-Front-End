@@ -36,7 +36,7 @@ function CourseDetails() {
             try {
                 const result = await fetchCourseDetails(courseId);
                 setCourseData(result);
-                // console.log('Course details result : ', result);
+
             } catch (error) {
                 // console.log("Could not fetch Course Details");
             }
@@ -140,8 +140,6 @@ function CourseDetails() {
             btn2Handler: () => setConfirmationModal(null),
         });
     };
-
-    // console.log('Instructor details: ', instructor);
 
     if (paymentLoading) {
         return (

@@ -46,7 +46,7 @@ export default function UpdatePassword() {
                                 name="oldPassword"
                                 id="oldPassword"
                                 placeholder="Enter Current Password"
-                                className="w-full pr-12 rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none pr-12 rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("oldPassword", { required: true })}
                             />
                             <span
@@ -74,7 +74,7 @@ export default function UpdatePassword() {
                                 name="newPassword"
                                 id="newPassword"
                                 placeholder="Enter New Password"
-                                className="w-full pr-12 rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none pr-12 rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("newPassword", { required: true })}
                             />
                             <span

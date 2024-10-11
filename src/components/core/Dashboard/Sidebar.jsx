@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { VscSignOut } from "react-icons/vsc";
+import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarRightCollapseFilled } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { sidebarLinks } from "../../../data/dashboard-links";
@@ -13,6 +14,7 @@ export default function Sidebar() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [confirmationModal, setConfirmationModal] = useState(null);
+    const [collapse, setCollapse] = useState(true);
 
     if (profileLoading || authLoading) {
         return (
@@ -28,20 +30,40 @@ export default function Sidebar() {
         );
     }
 
+    const collapseHandler = () => {
+        setCollapse((prev) => !prev);
+    }
+
     return (
         <>
-            <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
+            <div className={`flex h-[calc(100vh-3.5rem)] ${!collapse && 'min-w-[220px]'} flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10`}>
+                <div className={`relative p-4 mb-2 flex flex-row ${collapse ? "justify-center" : "gap-10"} items-center bg-richblack-800 text-yellow-100`}>
+                    <p className="text-2xl text-yellow-100">
+                        {
+                            !collapse && "StudyNotion"
+                        }
+                    </p>
+                    {/* <span
+                        className="absolute left-0 top-0 h-full w-[0.15rem] bg-yellow-50"
+                    ></span> */}
+                    <button className="transition-all duration-300 text-3xl">
+                        {
+                            collapse ? <TbLayoutSidebarRightCollapseFilled onClick={collapseHandler} /> : <TbLayoutSidebarLeftCollapseFilled onClick={collapseHandler} />
+                        }
+                    </button>
+                </div>
                 <div className="flex flex-col">
                     {sidebarLinks?.map((link) => {
                         if (link?.type && user?.accountType !== link?.type) return null;
                         return (
-                            <SidebarLink key={link?.id} link={link} iconName={link?.icon} />
+                            <SidebarLink collapse={collapse} key={link?.id} link={link} iconName={link?.icon} />
                         );
                     })}
                 </div>
                 <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
                 <div className="flex flex-col">
                     <SidebarLink
+                        collapse={collapse}
                         link={{ name: "Settings", path: "/dashboard/settings" }}
                         iconName="VscSettingsGear"
                     />
@@ -60,7 +82,9 @@ export default function Sidebar() {
                     >
                         <div className="flex items-center text-lg gap-x-2">
                             <VscSignOut className="text-xl" />
-                            <span>Logout</span>
+                            {
+                                !collapse && <span>Logout</span>
+                            }
                         </div>
                     </button>
                 </div>

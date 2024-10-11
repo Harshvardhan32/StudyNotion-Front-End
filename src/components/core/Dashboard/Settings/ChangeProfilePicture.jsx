@@ -38,11 +38,9 @@ export default function ChangeProfilePicture() {
 
     const handleFileUpload = () => {
         try {
-            // console.log("uploading...");
             setLoading(true);
             const formData = new FormData();
             formData.append("profilePicture", imageFile);
-            // console.log("formdata", formData)
             dispatch(updateProfilePicture(token, formData)).then(() => {
                 setLoading(false);
             });

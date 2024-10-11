@@ -43,7 +43,7 @@ export default function EditProfile() {
                                 name="firstName"
                                 id="firstName"
                                 placeholder="Enter first name"
-                                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("firstName", { required: true })}
                                 defaultValue={user?.firstName}
                             />
@@ -62,7 +62,7 @@ export default function EditProfile() {
                                 name="lastName"
                                 id="lastName"
                                 placeholder="Enter first name"
-                                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("lastName", { required: true })}
                                 defaultValue={user?.lastName}
                             />
@@ -83,7 +83,7 @@ export default function EditProfile() {
                                 type="date"
                                 name="dateOfBirth"
                                 id="dateOfBirth"
-                                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("dateOfBirth", {
                                     required: {
                                         value: true,
@@ -140,7 +140,7 @@ export default function EditProfile() {
                                 name="contactNumber"
                                 id="contactNumber"
                                 placeholder="Enter Contact Number"
-                                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("contactNumber", {
                                     required: {
                                         value: true,
@@ -166,7 +166,7 @@ export default function EditProfile() {
                                 name="about"
                                 id="about"
                                 placeholder="Enter Bio Details"
-                                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                                className="w-full outline-none rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
                                 {...register("about", { required: true })}
                                 defaultValue={user?.additionalDetails?.about}
                             />

@@ -22,7 +22,7 @@ export default function MyCourses() {
     }, []);
 
     return (
-        <div className="min-w-[800px]">
+        <div className="min-w-[800px] pr-10">
             <div className="mb-14 flex items-center justify-between">
                 <h1 className="text-3xl font-medium text-richblack-5">My Courses</h1>
                 <IconBtn
