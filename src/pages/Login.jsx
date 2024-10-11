@@ -1,16 +1,16 @@
-import signupImg from "../assets/Images/signup.webp";
+import loginImg from "../assets/Images/login.webp";
 import Template from "../components/core/Auth/Template";
 
-function Signup() {
+function Login() {
     return (
         <Template
-            title="Join the millions learning to code with StudyNotion for free"
+            title="Welcome Back"
             description1="Build skills for today, tomorrow, and beyond."
             description2="Education to future-proof your career."
-            image={signupImg}
-            formType="signup"
+            image={loginImg}
+            formType="login"
         />
     );
 }
 
-export default Signup;
+export default Login;
